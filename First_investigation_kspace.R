@@ -20,3 +20,8 @@ ClearPlot()
 plot(df$wf, abs(df$fy), type= 'b', col=rgb(0,0,1,0.25), xlim = c(20.8,21.2), xlab = 'w', ylab = 'abs', sub = 'Magnitude spectrum')
 abline(v=20.9, col='red')
 abline(v=21.0, col='red')
+
+##Divide real spectrum into bins
+n <- 4 # minimum no. of waves of this periodicity in the bin
+p <- k/0.01 #no. of points available in a single unit of periodicity
+N <- ceiling(n*p) #no. of data points needed for 4units of periodicity
