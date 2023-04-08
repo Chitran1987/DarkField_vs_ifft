@@ -17,3 +17,4 @@ Y <- rep(0, times = length(X))
 for (i in 1:length(vec_ran)) {
   Y <- Y + sin(k*(X + vec_ran[i]))*gauss(X, amp = 3, sig = gauss_decay[i], mu = vec_ran[i])
 }
+Y <- nrm(Y)
