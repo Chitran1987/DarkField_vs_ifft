@@ -1,8 +1,15 @@
 ##Divide real spectrum into bins
+#rm(list=ls())
 n <- 2 # minimum no. of waves of this periodicity in the bin
-p <- k/xsamp #no. of points available in a single unit of periodicity
+p <- win_min/xsamp #no. of points available in a single unit of periodicity
 N <- ceiling(n*p) #no. of data points needed for 2units of periodicity/for a single bin
 n_dark_field_bins <- floor(length(X)/N) #no. of bins created by this dark field binning over entire data set
+win_max <- 22 #The max value of the integration window in freq-space
+win_min <- 20 #The min value of the integration window in freq space
+
+
+
+
 
 ##start the dark field binning
 bin_vec <- seq(1, n_dark_field_bins) #define a bin vector
@@ -12,7 +19,7 @@ for (r in bin_vec) {
   d_tmp <- d_orig[((r-1)*N+1):(r*N),]  #subset your datatframe according to the bin
   dft_tmp_abs <- ft(d_tmp$X, d_tmp$Y, w=T)  #fourier transform it
   dft_tmp_abs$fy <- abs(dft_tmp_abs$fy) #convert the fourier coefficients to their magnitude
-  int_val <- num_integrate(dft_tmp_abs$w, dft_tmp_abs$fy, xmin = 20, xmax = 22) #integrate between said (w values) k-vectors in k-space
+  int_val <- num_integrate(dft_tmp_abs$w, dft_tmp_abs$fy, xmin = win_min, xmax = win_max) #integrate between said (w values) k-vectors in k-space
   dfld <- c(dfld, int_val)
 }
 dfld <- data.frame(bin_vec, dfld) #convert it into a data frame
