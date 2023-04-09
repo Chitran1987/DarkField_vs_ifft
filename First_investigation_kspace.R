@@ -35,7 +35,3 @@ plot(df$wf, abs(df$fy), type= 'l', col=rgb(0,0,1,0.25), xlim = c(19,24), ylim=c(
 abline(v=20, col='red')
 abline(v=22, col='red')
 
-##Divide real spectrum into bins
-n <- 4 # minimum no. of waves of this periodicity in the bin
-p <- k/xsamp #no. of points available in a single unit of periodicity
-N <- ceiling(n*p) #no. of data points needed for 4units of periodicity
