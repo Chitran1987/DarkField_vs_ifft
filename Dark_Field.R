@@ -1,3 +1,5 @@
+##Need windowing desperately
+
 ##Divide real spectrum into bins
 #rm(list=ls())
 n <- 2 # minimum no. of waves of this periodicity in the bin
@@ -33,8 +35,13 @@ for (r in bin_vec) {
   f_data_Y_tmp <- rep(dfld$dfld[r], N)
   f_data_Y <- c(f_data_Y, f_data_Y_tmp)
 }
-f_data_Y <- nrm(f_data)
+f_data_Y <- nrm(f_data_Y)
 f_data <- data.frame(f_data_X, f_data_Y)
+
+##scaling f_data to look good for plotting
+min_f <-  mean(Y)
+max_f <- (max(Y) - mean(Y))/3 + mean(Y)    ##simple aesthetic judgement ;)
+f_data$f_data_Y <- nrm(f_data$f_data_Y, min = min_f, max = max_f)
 
 ##plotting the data
 ClearPlot()
