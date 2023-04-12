@@ -1,5 +1,7 @@
 ##Write a function for frequency mapping using a specific k-space/freq-space window
 freq_map <- function(X,Y, wmin, wmax, nbin, plt=F){
+  win_min <- wmin
+  win_max <- wmax
   xsamp <- mean(diff(X)) #define the sampling
   p <- 2*pi/(win_min*xsamp) #no. of points available in a single unit of periodicity
   N <- ceiling(nbin*p) #no. of data points needed for 2units of periodicity/for a single bin
@@ -39,17 +41,23 @@ freq_map <- function(X,Y, wmin, wmax, nbin, plt=F){
   }
   f_data_Y <- nrm(f_data_Y)
   f_data <- data.frame(f_data_X, f_data_Y)
-  return(f_data)
+ 
   
-  if(plt==T){
+  if(plt == T){
     ##scaling f_data to look good for plotting
+    print('plt is true')
     min_f <-  mean(Y)
-    max_f <- (max(Y) - mean(Y))/3 + mean(Y)    ##simple aesthetic judgement ;)
+    max_f <- (max(Y) - mean(Y))/3 + mean(Y)    ##simple aesthetic judgement
     f_data$f_data_Y <- nrm(f_data$f_data_Y, min = min_f, max = max_f)
     
     ##plotting the data
-    ClearPlot()
+    #ClearPlot()
     plot(X,Y, col=rgb(0,0,1,0.25), type = 'l')
     lines(f_data$f_data_X, f_data$f_data_Y, col='red')
   }
-} 
+  return(f_data)
+}
+
+
+###testing the function
+test_df <- freq_map(X,Y, wmin=19, wmax = 23, nbin = 20, plt = T)
