@@ -92,7 +92,7 @@ freq_map <- function(X,Y, w_int, nbin, color, plt=F){
     for (r in bin_vec[[i]]) {
       f_data_X_tmp <- X[((r-1)*N+1):(r*N)]
       f_data_X <- c(f_data_X, f_data_X_tmp)
-      f_data_Y_tmp <- rep(dfld$dfld[r], N)
+      f_data_Y_tmp <- rep(dark_list[[i]]$dfld[r], N)
       f_data_Y <- c(f_data_Y, f_data_Y_tmp)
     }
     #f_data_Y <- nrm(f_data_Y)
@@ -138,4 +138,5 @@ freq_map <- function(X,Y, w_int, nbin, color, plt=F){
 
 
 ###testing the function
-test_df <- freq_map(X,Y, wmin=19, wmax = 23, nbin = 20, plt = T)
+
+test_df <- freq_map(X,Y, w_int = data.frame(c(19,23)), nbin = 20, plt = T, color = 'red')
