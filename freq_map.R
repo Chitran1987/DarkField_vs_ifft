@@ -72,13 +72,13 @@ freq_map <- function(X,Y, w_int, nbin, color, plt=F){
     dfld <- NULL #define a dark field vector
     d_orig <- data.frame(X,Y)
     for (r in bin_vec[[i]]) {
-      d_tmp <- d_orig[((r-1)*N+1):(r*N),]  #subset your datatframe according to the bin
+      d_tmp <- d_orig[((r-1)*N[i]+1):(r*N[i]),]  #subset your datatframe according to the bin
       dft_tmp_abs <- ft(d_tmp$X, d_tmp$Y, w=T)  #fourier transform it
       dft_tmp_abs$fy <- abs(dft_tmp_abs$fy) #convert the fourier coefficients to their magnitude
       int_val <- num_integrate(dft_tmp_abs$w, dft_tmp_abs$fy, xmin = win_min[i], xmax = win_max[i]) #integrate between said (w values) k-vectors in k-space
       dfld <- c(dfld, int_val)
     }
-    dark_list[[i]] <- data.frame(bin_vec, dfld) #convert it into a data frame and store it in a list
+    dark_list[[i]] <- data.frame(bin_vec[[i]], dfld) #convert it into a data frame and store it in a list
   }
 
   
@@ -90,9 +90,9 @@ freq_map <- function(X,Y, w_int, nbin, color, plt=F){
     f_data_X <- NULL
     f_data_Y <- NULL
     for (r in bin_vec[[i]]) {
-      f_data_X_tmp <- X[((r-1)*N+1):(r*N)]
+      f_data_X_tmp <- X[((r-1)*N[i]+1):(r*N[i])]
       f_data_X <- c(f_data_X, f_data_X_tmp)
-      f_data_Y_tmp <- rep(dark_list[[i]]$dfld[r], N)
+      f_data_Y_tmp <- rep(dark_list[[i]]$dfld[r], N[i])
       f_data_Y <- c(f_data_Y, f_data_Y_tmp)
     }
     #f_data_Y <- nrm(f_data_Y)
@@ -139,4 +139,4 @@ freq_map <- function(X,Y, w_int, nbin, color, plt=F){
 
 ###testing the function
 
-test_df <- freq_map(X,Y, w_int = data.frame(c(19,23)), nbin = 20, plt = T, color = 'red')
+test_df <- freq_map(X,Y, w_int = data.frame(c(3,7), c(7.25,11), c(19,23)), nbin = c(20,20,20), plt = T, color = c('red', 'blue', 'green'))
