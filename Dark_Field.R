@@ -2,7 +2,7 @@
 
 ##Divide real spectrum into bins
 #rm(list=ls())
-nbin <- 60 # minimum no. of waves of this periodicity in the bin
+nbin <- 50 # minimum no. of waves of this periodicity in the bin
 win_max <- 22 #The max value of the integration window in freq-space
 win_min <- 20 #The min value of the integration window in freq space
 
