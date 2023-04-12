@@ -2,12 +2,15 @@
 
 ##Divide real spectrum into bins
 #rm(list=ls())
-n <- 2 # minimum no. of waves of this periodicity in the bin
-p <- win_min/xsamp #no. of points available in a single unit of periodicity
-N <- ceiling(n*p) #no. of data points needed for 2units of periodicity/for a single bin
-n_dark_field_bins <- floor(length(X)/N) #no. of bins created by this dark field binning over entire data set
+nbin <- 12 # minimum no. of waves of this periodicity in the bin
 win_max <- 22 #The max value of the integration window in freq-space
 win_min <- 20 #The min value of the integration window in freq space
+
+
+p <- 2*pi/(win_min*xsamp) #no. of points available in a single unit of periodicity
+N <- ceiling(nbin*p) #no. of data points needed for 2units of periodicity/for a single bin
+n_dark_field_bins <- floor(length(X)/N) #no. of bins created by this dark field binning over entire data set
+
 
 
 
