@@ -1,4 +1,5 @@
 ##Write a function for frequency mapping using a specific k-space/freq-space window
+ClearPlot()
 freq_map <- function(X,Y, w_int, nbin, color, plt=F){
   #w_int has to be a 2 row data frame
   #nbin has to be a vector such that "length(nbin) == dim(w_int)[2]" 
@@ -116,7 +117,7 @@ freq_map <- function(X,Y, w_int, nbin, color, plt=F){
     for (i in 1:dim(w_int)[2]) {
       color_ratio_vec <- c(color_ratio_vec, f_data_ratios[[i]]) #place in color_ratio_vec
     }
-    color_ratio_vec <- nrm(color_ratio_vec, min = mean(Y), max = 2*(max(Y) - mean(Y))/3 + mean(Y)) #normalize
+    color_ratio_vec <- nrm(color_ratio_vec, min = mean(Y), max = 1*(max(Y) - mean(Y))/2 + mean(Y)) #normalize
     for (i in 1:dim(w_int)[2]) {
       f_data_ratios[[i]] <- c(color_ratio_vec[2*i-1], color_ratio_vec[2*i]) #place back in f_data_ratios
     }
@@ -139,4 +140,4 @@ freq_map <- function(X,Y, w_int, nbin, color, plt=F){
 
 ###testing the function
 
-test_df <- freq_map(X,Y, w_int = data.frame(c(3,7), c(7.25,11), c(19,23)), nbin = c(20,20,20), plt = T, color = c('red', 'blue', 'green'))
+test_df <- freq_map(X,Y, w_int = data.frame(c(3,7), c(7.25,11), c(19,23)), nbin = c(12,12,40), plt = T, color = c('red', 'blue', 'black'))
