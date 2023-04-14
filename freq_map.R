@@ -1,8 +1,15 @@
 ##Write a function for frequency mapping using a specific k-space/freq-space window
 ClearPlot()
-freq_map <- function(X,Y, w_int, nbin, color, plt=F){
-  #w_int has to be a 2 row data frame
-  #nbin has to be a vector such that "length(nbin) == dim(w_int)[2]" 
+freq_map <- function(X,Y, w_int, nbin, xbox, color, plt=F){
+  #w_int has to be a 2 row data frame. Defines the min and max values of the k-space within whose bounds you integrate
+  #nbin has to be a vector such that "length(nbin) == dim(w_int)[2]". No. of single units of periodicity to be mapped for each freq component.
+  #xbox has to be a single number: denotes the length of the bin vector in real space(Use only if you want same bin size for all vectors, else use nbin)
+   #xbox and nbin can't be simultaneously defined
+  ###error handling for simultaneous xbox and nbin usage#######################################
+  if(xor(missing(nbin), missing(xbox)) == F){
+    stop('Either both xbox and nbin are both assigned, or are both missing. Check') ##check if both nbin and xbox are assigned
+  }
+  #############################################################################################
   ###error handling for w_int here#############################################################
   if(is.data.frame(w_int) == F){
     stop('w_int has to be a dataframe (of type list)') ##check for data frame
@@ -31,13 +38,29 @@ freq_map <- function(X,Y, w_int, nbin, color, plt=F){
   if(sum(is.na(nbin)) != 0){
     stop('nbin cannot contain NAs') ##check for NAs
   }
+  ###################################################################################
   ##error handling for color vector here#############################################
   if(plt == T){
     if(length(color) != dim(w_int)[2]){
       stop('length of color vector and no. of columns in w_int have to be equal')
     }
   }
-  
+  ###################################################################################
+  ##error handling for xbox here#####################################################
+  if(missing(xbox) == F){
+    if(is.numeric(xbox) == F){
+      stop('xbox has to be a numeric') ##check if xbox is a numeric
+    }
+    if(is.null(dim(xbox)) == F){
+      stop('xbox should have a dimension of NULL') ##check if xbox is a simple number
+    }
+    w_trial <- as.numeric(unlist(w_int)) ##force all integration limits into a vector, w_trial
+    w_min_abs <- min(w_trial)  ##identify the smallest element in the vector, w_trial, as this corresponds to the largest possible wavelength  
+    if(xbox <= 2*pi/w_min_abs){
+      stop('xbox size too small for all wavelengths applied. Please suggest a larger size of xbox') #check if xbox can accommodate the largest wave limit suggested by w_int
+    }
+  }
+  ###################################################################################
   ##define the sampling##############################################################
   xsamp <- mean(diff(X)) 
   ##define the integration bounds####################################################
@@ -47,9 +70,14 @@ freq_map <- function(X,Y, w_int, nbin, color, plt=F){
     win_min[i] <- min(w_int[,i])
     win_max[i] <- max(w_int[,i])
   }
+  ##define nbin from xbox if nbin is not separately assigned#########################
+  if(missing(xbox) == F){
+    xp <- 2*pi/win_min  #max possible periodicity of the waves suggested by each window of the w_int data frame 
+    nbin <- xbox/xp     #once nbin is defined from xbox, the rest of the algorithm could function independently
+  }
   ##no. of points available in a single unit of periodicity##########################
-  p <- 2*pi/(win_min*xsamp) 
-  N <- ceiling(nbin*p) #no. of data points needed for 2units of periodicity/for a single bin
+  p <- 2*pi/(win_min*xsamp) #no. of data points needed for a single unit of periodicity in each wave
+  N <- ceiling(nbin*p) #no. of data points needed for nbin units of periodicity/for a single bin
   n_dark_field_bins <- floor(length(X)/N) #no. of bins created by this dark field binning over entire data set
   
   ###error handling here################################################################
