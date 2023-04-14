@@ -26,18 +26,21 @@ freq_map <- function(X,Y, w_int, nbin, xbox, color, plt=F){
   
   ####################################################################################
   ###error handling for nbin here#####################################################
-  if(is.vector(nbin) == F){
-    stop('nbin has to be a vector') ##check for vector
+  if(missing(nbin) == F){
+    if(is.vector(nbin) == F){
+      stop('nbin has to be a vector') ##check for vector
+    }
+    if(length(nbin) != dim(w_int)[2]){
+      stop('length of nbin and no. of columns in w_int have to be equal') ##check for dimensions
+    }
+    if(is.numeric(nbin) == F){
+      stop('nbin has to be numeric')  ##check if nbin is numeric
+    }
+    if(sum(is.na(nbin)) != 0){
+      stop('nbin cannot contain NAs') ##check for NAs
+    }
   }
-  if(length(nbin) != dim(w_int)[2]){
-    stop('length of nbin and no. of columns in w_int have to be equal') ##check for dimensions
-  }
-  if(is.numeric(nbin) == F){
-    stop('nbin has to be numeric')  ##check if nbin is numeric
-  }
-  if(sum(is.na(nbin)) != 0){
-    stop('nbin cannot contain NAs') ##check for NAs
-  }
+
   ###################################################################################
   ##error handling for color vector here#############################################
   if(plt == T){
@@ -169,3 +172,4 @@ freq_map <- function(X,Y, w_int, nbin, xbox, color, plt=F){
 ###testing the function
 
 test_df <- freq_map(X,Y, w_int = data.frame(c(3,7), c(7.25,11), c(19,23)), nbin = c(12,12,40), plt = T, color = c('red', 'blue', 'black'))
+test_df1 <- freq_map(X,Y, w_int = data.frame(c(3,7), c(7.25,11), c(19,23)), xbox = 40*pi/3, plt = T, color = c('red', 'blue', 'black'))
