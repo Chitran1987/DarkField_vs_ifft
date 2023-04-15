@@ -1,7 +1,7 @@
 ##Write a function for frequency mapping using a specific k-space/freq-space window
 ClearPlot()
-freq_map <- function(X,Y, w_int, nbin, xbox, color, plt=F){
-  #w_int has to be a 2 row data frame. Defines the min and max values of the k-space within whose bounds you integrate
+freq_map <- function(X,Y, w_int, nbin, xbox, color, plt=F, plt.leg=F){
+  #w_int has to be a 2 row data frame. Defines the min and max values of the k-space within whose bounds you integrate. name your columns for the plot legends
   #nbin has to be a vector such that "length(nbin) == dim(w_int)[2]". No. of single units of periodicity to be mapped for each freq component.
   #xbox has to be a single number: denotes the length of the bin vector in real space(Use only if you want same bin size for all vectors, else use nbin)
    #xbox and nbin can't be simultaneously defined
@@ -163,7 +163,9 @@ freq_map <- function(X,Y, w_int, nbin, xbox, color, plt=F){
     for (i in 1:dim(w_int)[2]) {
       lines(f_data_norm[[i]]$f_data_X, f_data_norm[[i]]$f_data_Y, col=color[i])
     }
-    
+    if(plt.leg ==T){
+      legend('topright', legend = names(w_int), lty = 1, col = color, horiz = F, bg = 'transparent', bty = 'n', lwd = 3)
+    }
   }
   return(f_data)
 }
@@ -173,3 +175,12 @@ freq_map <- function(X,Y, w_int, nbin, xbox, color, plt=F){
 
 test_df <- freq_map(X,Y, w_int = data.frame(c(3,7), c(7.25,11), c(19,23)), nbin = c(12,12,40), plt = T, color = c('red', 'blue', 'black'))
 test_df1 <- freq_map(X,Y, w_int = data.frame(c(3,7), c(7.25,11), c(19,23)), xbox = 40*pi/3, plt = T, color = c('red', 'blue', 'black'))
+##checking the integrals
+L <- vector(mode = 'list', length = 3)
+for (i in 1:3) {
+  L[[i]] <- num_integrate(test_df1[[i]]$f_data_X, test_df1[[i]]$f_data_Y, xmin = min(test_df1[[i]]$f_data_X), xmax = max(test_df1[[i]]$f_data_X))
+}
+w <- data.frame(c(3,7), c(7.25,11), c(19,23))
+names(w) <- c('w1','w2','w3')
+col_vec <- c('red','blue','green')
+test_df2 <- freq_map(X,Y, w_int = w,  xbox = 30*pi/3, plt = T, color = col_vec, plt.leg = T )
