@@ -1,6 +1,7 @@
 df <- ft(X,Y, w=T)
 ClearPlot()
-plot(df$wf, abs(df$fy), xlim = c(2,25), ylim=c(0,0.4*10^4), type = 'l', col=rgb(0,0,1,0.25))
+plot(df$wf, abs(df$fy))
+plot(df$wf, abs(df$fy), xlim = c(2,25), type = 'l', col=rgb(0,0,1,0.25))
 ##limits
 abline(v=3, col='red')
 abline(v=7, col='red')

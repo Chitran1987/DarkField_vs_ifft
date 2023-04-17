@@ -7,8 +7,8 @@ X <- seq(x_L, x_H, by=xsamp)
 
 #randomize the position of the periodic signals
 vec_ran1 <- runif(n=100, min = x_L, max = x_H) ##select random center points for signal1
-vec_ran2 <- runif(n=100, min = x_L, max = x_H) ##select random center points for signal2
-vec_ran3 <- runif(n=100, min = x_L, max = x_H) ##select random center points for signal3
+vec_ran2 <- runif(n=100, min = x_L, max = x_H/2) ##select random center points for signal2
+vec_ran3 <- runif(n=100, min = x_L, max = x_H/3) ##select random center points for signal3
 
 a <- 1 #minimum decay sd for gaussian decay
 b <- 5 #maximum decay sd for gaussian decay
