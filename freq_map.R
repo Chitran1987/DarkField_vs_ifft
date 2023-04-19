@@ -173,14 +173,22 @@ freq_map <- function(X,Y, w_int, nbin, xbox, color, plt=F, plt.leg=F){
 
 ###testing the function
 
-test_df <- freq_map(X,Y, w_int = data.frame(c(3,7), c(7.25,11), c(19,23)), nbin = c(12,12,40), plt = T, color = c('red', 'blue', 'black'))
-test_df1 <- freq_map(X,Y, w_int = data.frame(c(3,7), c(7.25,11), c(19,23)), xbox = 40*pi/3, plt = T, color = c('red', 'blue', 'black'))
-##checking the integrals
-L <- vector(mode = 'list', length = 3)
-for (i in 1:3) {
-  L[[i]] <- num_integrate(test_df1[[i]]$f_data_X, test_df1[[i]]$f_data_Y, xmin = min(test_df1[[i]]$f_data_X), xmax = max(test_df1[[i]]$f_data_X))
-}
-w <- data.frame(c(3,7), c(7.25,11), c(19,23))
-names(w) <- c('w1','w2','w3')
-col_vec <- c('red','blue','green')
-test_df2 <- freq_map(X,Y, w_int = w,  xbox = 30*pi/3, plt = T, color = col_vec, plt.leg = T )
+# test_df <- freq_map(X,Y, w_int = data.frame(c(3,7), c(7.25,11), c(19,23)), nbin = c(12,12,40), plt = T, color = c('red', 'blue', 'black'))
+# test_df1 <- freq_map(X,Y, w_int = data.frame(c(3,7), c(7.25,11), c(19,23)), xbox = 40*pi/3, plt = T, color = c('red', 'blue', 'black'))
+# ##checking the integrals
+# L <- vector(mode = 'list', length = 3)
+# for (i in 1:3) {
+#   L[[i]] <- num_integrate(test_df1[[i]]$f_data_X, test_df1[[i]]$f_data_Y, xmin = min(test_df1[[i]]$f_data_X), xmax = max(test_df1[[i]]$f_data_X))
+# }
+# w <- data.frame(c(3,7), c(7.25,11), c(19,23))
+# names(w) <- c('w1','w2','w3')
+# col_vec <- c('red','blue','green')
+# test_df2 <- freq_map(X,Y, w_int = w,  xbox = 30*pi/3, plt = T, color = col_vec, plt.leg = T )
+w1 <- c(550, 850)
+w2 <- c(3000, 3300)
+w3 <- c(4700, 5000)
+w_df <- data.frame(w1, w2, w3)
+col_vec <- c('red', 'blue', 'green')
+plot(my_voice_01$time, my_voice_01$left, col=rgb(0,0,1,0.25), type='l')
+bin <- 0.085
+List_frmap <- freq_map(my_voice_01$time, my_voice_01$left, w_int = w_df, xbox = bin, plt = T, plt.leg = T, color = col_vec)
