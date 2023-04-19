@@ -14,3 +14,8 @@ right <- my_audio@right
 t <- seq(0, (length(left)-1))*(1/(my_audio@samp.rate))
 plot(t, left, type='l', col=rgb(0,0,1,0.25))
 lines(t, left, type='l', col=rgb(0,1,0,0.25))
+
+#convert to a dataframe
+my_voice_01 <- data.frame(t, left, right)
+names(my_voice_01) <- c('time', 'left', 'right')
+save(my_voice_01, file = 'my_voice_01.rda')
