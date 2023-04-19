@@ -32,41 +32,44 @@ A vector with the x-values of the dataset. This argument must be provided.
 A vector with the y-values of the dataset. This argument must be provided.
 }
   \item{w_int}{
-A dataframe with n-columns and 2 rows\cr
-Here the no. of required frequency windows is n\cr
-Each column denotes a given frequency window\cr
-Each column MUST have EXACTLY 2 values (denoting the upper/lower frequency limit of that window), else error is thrown\cr
-This argument must be provided
+1. A dataframe with n-columns and 2 rows\cr
+2. Each value in w_int is of of 'w = 2*pi*f' or circular frequency format. DONOT use the 'w = 1*f' format\cr
+3. Here the no. of required frequency windows is n\cr
+4. Each column denotes a given frequency window\cr
+5. Each column MUST have EXACTLY 2 values (denoting the upper/lower frequency limit of that window), else error is thrown\cr
+6. This argument must be provided
 }
   \item{xbox}{
-The width of the segmentation box in real space\cr 
-Must be a single number (numeric and 'dim(xbox)=NULL')\cr
-Must only be provided when 'nbin' is NOT provided\cr
-If provided along with 'nbin', function throws an error\cr
+1. The width of the segmentation box in real space\cr 
+2. Must be a single number (numeric and 'dim(xbox)=NULL')\cr
+3. Must only be provided when 'nbin' is NOT provided\cr
+4. If provided along with 'nbin', function throws an error\cr
 }
   \item{nbin}{
-The no. of periodic units wanted in each freq. window (mapped w.r.t lower limit of freq window)\cr
-Must be a numeric vector(NOT list) of length = n, otherwise error thrown\cr
-Must only be provided when 'xbox' is NOT provided\cr
-If provided along with 'xbox', function throws an error\cr
+1. The no. of periodic units wanted in each freq. window (mapped w.r.t lower limit of freq window)\cr
+2. Must be a numeric vector(NOT list) of length = n, otherwise error thrown\cr
+3. Must only be provided when 'xbox' is NOT provided\cr
+4. If provided along with 'xbox', function throws an error\cr
 }
   \item{plt}{
-Toggles plot on or off with TRUE/FALSE respectively\cr
-Default set to FALSE
+1. Toggles plot on or off with TRUE/FALSE respectively\cr
+2. Default set to FALSE
 }
   \item{plt.leg}{
-Toggles plot legend on or off with TRUE/FALSE respectively\cr
-Ordinarily set to FALSE\cr
-Can only be provided if 'plt=TRUE'
+1. Toggles plot legend on or off with TRUE/FALSE respectively\cr
+2. Ordinarily set to FALSE\cr
+3. Can only be provided if 'plt=TRUE'
 }
   \item{color}{
-Vector of length n\cr
-Provides colours of the different frequency windows to be plotted\cr
-Must only be provided, if 'plt=TRUE'
+1. Vector of length n\cr
+2. Provides colours of the different frequency windows to be plotted\cr
+3. Must only be provided, if 'plt=TRUE'
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+1. X, Y, w_int and (either xbox or nbin) are mandatory\cr
+2. If 'plt = TRUE', 'color' is mandatory\cr
+3. w_int uses 'w = 2*pi*f' format, not 'w = 1*f' format
 }
 \value{
 Returns a list containing dataframes related to each individual frequency window presented in the w_int dataframe
@@ -87,15 +90,14 @@ Chitran Ghosal
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+w1 <- c(550, 850)
+w2 <- c(3000, 3300)
+w3 <- c(4700, 5000)
+w_df <- data.frame(w1, w2, w3)
+col_vec <- c('red', 'blue', 'green')
+bin <- 0.085
+List_frmap <- freq_map(my_voice_01$time, my_voice_01$left, w_int = w_df, xbox = bin, plt = T, plt.leg = T, color = col_vec)
 
-## The function is currently defined as
-function (x) 
-{
-  }
-}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory (show via RShowDoc("KEYWORDS")):
 % \keyword{ ~kwd1 }
