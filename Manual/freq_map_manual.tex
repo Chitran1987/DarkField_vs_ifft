@@ -1,0 +1,103 @@
+\documentclass{scrbook}
+\usepackage{tcolorbox}
+\usepackage{hyperref} %for better referencing
+\title{Manual for the freq\_map() package}
+\author{Chitran Ghosal}
+
+%%PAGE GEOMETRY and PAGE SETUP, as in header/footer/footnote
+%%-----------------------------------------------------------------------
+%%-----------------------------------------------------------------------
+\usepackage[a4paper, bindingoffset=6mm,
+headheight=15.2pt % use geometry to change the head height
+]{geometry}
+
+\usepackage[headsepline,automark,autooneside=false]{scrlayer-scrpage}% sets pagestyle scrheadings automatically
+\renewcommand*\chaptermarkformat{}% remove chapter number from header entry
+\renewcommand*\sectionmarkformat{}% remove section number from header entry
+
+\clearpairofpagestyles% before setting the new contents of header and footer
+\cfoot*{\pagemark}
+\ihead{\rightmark}
+\ohead{\leftmark}
+\addtokomafont{pageheadfoot}{\upshape}
+
+% page style empty in TOC, LOF, LOT and all other lists under controll of  package tocbasic
+%\AfterTOCHead{\thispagestyle{empty}\pagestyle{empty}}
+%\AfterStartingTOC{\thispagestyle{empty}}
+
+\usepackage{blindtext}% only for dummy text
+
+\usepackage[bottom]{footmisc}                    %createsfootnotes
+%%-----------------------------------------------------------------------
+%%-----------------------------------------------------------------------
+
+%%MATHEMATICAL PACKAGES
+%%-----------------------------------------------------------------------
+%%-----------------------------------------------------------------------
+\usepackage{physics,amsthm, amsmath,esint}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tcolorbox}
+%%-----------------------------------------------------------------------
+%%-----------------------------------------------------------------------
+
+%%GRAPHICS PACKAGES
+%%----------------------------------------------------------------------
+%%----------------------------------------------------------------------
+\usepackage{graphicx}               %needed for the insertion of graphics, remove draft for final script.
+\graphicspath{{./images/}}            %needed for choosing the image path
+\usepackage{caption}             %needed for captioning of a single image
+\captionsetup{justification = raggedright, singlelinecheck = false} %forces left-alignment of captions
+\usepackage{subcaption}         %needed for allowing 'sub'-captioning of multiple-images
+\setcapindent{2cm}                   %indents the caption borders to zero
+\usepackage{float}	                         %allows using [H] for images
+\usepackage[font={small}]{caption} %image captions in different fonts
+%\usepackage{float}
+%\floatstyle{boxed} 
+%\restylefloat{figure}          %defines a border for all the float images
+%%-----------------------------------------------------------------------
+%%-----------------------------------------------------------------------
+
+
+
+%%PACKAGE FOR APPENDICES
+%%-----------------------------------------------------------------------
+%%-----------------------------------------------------------------------
+\usepackage[toc,page]{appendix}
+%%-----------------------------------------------------------------------
+%%-----------------------------------------------------------------------
+
+%%PACKAGE FOR CODE INDENTATION
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+	language=Python,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3
+}
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\input{chptr1}
+	\input{chptr2}
+	\input{chptr3}
+	\begin{appendices}
+		\input{appendix}
+	\end{appendices}
+\end{document}
