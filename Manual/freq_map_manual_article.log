@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.5.12)  1 MAY 2023 21:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.5.12)  3 MAY 2023 20:08
 entering extended mode
 **./freq_map_manual_article.tex
 (freq_map_manual_article.tex
@@ -428,7 +428,277 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip49
 )
-(C:\Program Files\MiKTeX\tex/latex/geometry\geome                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                iKTeX\tex/latex/amsfonts\amssymb.sty
+(C:\Program Files\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(C:\Program Files\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count279
+\Gm@cntv=\count280
+\c@Gm@tempcnt=\count281
+\Gm@bindingoffset=\dimen184
+\Gm@wd@mp=\dimen185
+\Gm@odd@mp=\dimen186
+\Gm@even@mp=\dimen187
+\Gm@layoutwidth=\dimen188
+\Gm@layoutheight=\dimen189
+\Gm@layouthoffset=\dimen190
+\Gm@layoutvoffset=\dimen191
+\Gm@dimlist=\toks29
+
+(C:\Program Files\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Program Files\MiKTeX\tex/latex/koma-script\scrlayer-scrpage.sty
+Package: scrlayer-scrpage 2022/07/04 v3.37 KOMA-Script package (end user interf
+ace for scrlayer)
+
+(C:\Program Files\MiKTeX\tex/latex/koma-script\scrlayer.sty
+Package: scrlayer 2022/07/04 v3.37 KOMA-Script package (defining layers and pag
+e styles)
+
+(C:\Program Files\MiKTeX\tex/latex/koma-script\scrkbase.sty
+Package: scrkbase 2022/07/04 v3.37 KOMA-Script package (KOMA-Script-dependent b
+asics and keyval usage)
+
+(C:\Program Files\MiKTeX\tex/latex/koma-script\scrbase.sty
+Package: scrbase 2022/07/04 v3.37 KOMA-Script package (KOMA-Script-independent 
+basics and keyval usage)
+
+(C:\Program Files\MiKTeX\tex/latex/koma-script\scrlfile.sty
+Package: scrlfile 2022/07/04 v3.37 KOMA-Script package (file load hooks)
+
+(C:\Program Files\MiKTeX\tex/latex/koma-script\scrlfile-hook-3.34.sty
+Package: scrlfile-hook-3.34 2022/07/04 v3.37 KOMA-Script package (using LaTeX h
+ooks)
+
+LaTeX3 Info: Defining command \BeforeFile with sig. 'm' on line 87.
+
+
+LaTeX3 Info: Defining command \AfterFile with sig. 'm' on line 91.
+
+
+LaTeX3 Info: Defining command \BeforeClass with sig. 'm' on line 95.
+
+
+LaTeX3 Info: Defining command \BeforePackage with sig. 'm' on line 99.
+
+
+LaTeX3 Info: Defining command \AfterAtEndOfClass with sig. 'smo+m' on line
+(LaTeX3)     109.
+
+
+LaTeX3 Info: Defining command \AfterAtEndOfPackage with sig. 'smo+m' on line
+(LaTeX3)     119.
+
+
+LaTeX3 Info: Defining command \scrlfile@AfterClass with sig. 'smo+m' on line
+(LaTeX3)     199.
+
+
+LaTeX3 Info: Defining command \AfterClass with sig. '' on line 200.
+
+
+LaTeX3 Info: Defining command \scrlfile@AfterPackage with sig. 'smo+m' on line
+(LaTeX3)     217.
+
+
+LaTeX3 Info: Defining command \AfterPackage with sig. '' on line 218.
+
+
+LaTeX3 Info: Defining command \ReplaceInput with sig. '' on line 219.
+
+
+LaTeX3 Info: Defining command \ReplaceClass with sig. 'mm' on line 222.
+
+
+LaTeX3 Info: Defining command \ReplacePackage with sig. 'mm' on line 225.
+
+
+LaTeX3 Info: Defining command \UnReplaceInput with sig. '' on line 226.
+
+
+LaTeX3 Info: Defining command \UnReplaceClass with sig. 'm' on line 229.
+
+
+LaTeX3 Info: Defining command \UnReplacePackage with sig. 'mm' on line 232.
+
+
+LaTeX3 Info: Defining command \PreventPackageFromLoading with sig. 's+om' on
+(LaTeX3)     line 260.
+
+
+LaTeX3 Info: Defining command \StorePreventPackageFromLoading with sig. 'm' on
+(LaTeX3)     line 268.
+
+
+LaTeX3 Info: Defining command \ResetPreventPackageFromLoading with sig. '' on
+(LaTeX3)     line 273.
+
+
+LaTeX3 Info: Defining command \UnPreventPackageFromLoading with sig. 'sm' on
+(LaTeX3)     line 287.
+
+
+LaTeX3 Info: Defining command \BeforeClosingMainAux with sig. 'om' on line
+(LaTeX3)     300.
+
+
+LaTeX3 Info: Defining command \AfterReadingMainAux with sig. 'om' on line 313.
+
+
+LaTeX3 Info: Defining command \protected@immediate@write with sig. 'm+m+m' on
+(LaTeX3)     line 324.
+
+
+(C:\Program Files\MiKTeX\tex/latex/koma-script\scrlogo.sty
+Package: scrlogo 2022/07/04 v3.37 KOMA-Script package (logo)
+)))
+Skipping: [2021/05/01] Usage of raw or classic option list on input line 252.
+Applying: [0000/00/00] Usage of raw or classic option list on input line 368.
+))
+\footheight=\skip50
+Package scrlayer Info: patching LaTeX kernel macro \pagestyle on input line 215
+5.
+))
+1: subsection
+1: section
+1: section
+1: subsection
+(C:\Program Files\MiKTeX\tex/latex/blindtext\blindtext.sty
+Package: blindtext 2012/01/06 V2.0 blindtext-Package
+
+(C:\Program Files\MiKTeX\tex/latex/latex-tools\xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+\c@blindtext=\count282
+\c@Blindtext=\count283
+\c@blind@countparstart=\count284
+\blind@countxx=\count285
+\blindtext@numBlindtext=\count286
+\blind@countyy=\count287
+\c@blindlist=\count288
+\c@blindlistlevel=\count289
+\c@blindlist@level=\count290
+\blind@listitem=\count291
+\c@blind@listcount=\count292
+\c@blind@levelcount=\count293
+\blind@mathformula=\count294
+\blind@Mathformula=\count295
+\c@blind@randomcount=\count296
+\c@blind@randommax=\count297
+\c@blind@pangramcount=\count298
+\c@blind@pangrammax=\count299
+)
+(C:\Program Files\MiKTeX\tex/latex/footmisc\footmisc.sty
+Package: footmisc 2022/03/08 v6.0d a miscellany of footnote facilities
+\FN@temptoken=\toks30
+\footnotemargin=\dimen192
+\@outputbox@depth=\dimen193
+
+LaTeX3 Info: Defining command \DefineFNsymbols with sig. 'smO{text}m' on line
+(LaTeX3)     633.
+
+
+LaTeX3 Info: Defining command \DefineFNsymbolsTM with sig. 'smm' on line 659.
+
+Package footmisc Info: Declaring symbol style bringhurst on input line 695.
+Package footmisc Info: Declaring symbol style chicago on input line 703.
+Package footmisc Info: Declaring symbol style wiley on input line 712.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 723.
+
+Package footmisc Info: Declaring symbol style lamport* on input line 743.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 764
+.
+)
+(C:\Program Files\MiKTeX\tex/latex/physics\physics.sty
+Package: physics 
+
+(C:\Program Files\MiKTeX\tex/latex/l3packages/xparse\xparse.sty
+(C:\Program Files\MiKTeX\tex/latex/l3kernel\expl3.sty
+Package: expl3 2021-05-07 L3 programming layer (loader) 
+
+(C:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2021-05-07 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count300
+\l__pdf_internal_box=\box62
+))
+(C:\Program Files\MiKTeX\tex/latex/l3packages/xparse\xparse-2020-10-01.sty
+(C:\Program Files\MiKTeX\tex/latex/l3packages/xparse\xparse-generic.tex)))
+(C:\Program Files\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2020/09/23 v2.17i AMS math features
+\@mathmargin=\skip51
+
+For additional information on amsmath, use the `?' option.
+(C:\Program Files\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(C:\Program Files\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks31
+\ex@=\dimen194
+))
+(C:\Program Files\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen195
+)
+(C:\Program Files\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count301
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count302
+\leftroot@=\count303
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count304
+\DOTSCASE@=\count305
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box63
+\strutbox@=\box64
+\big@size=\dimen196
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count306
+\c@MaxMatrixCols=\count307
+\dotsspace@=\muskip17
+\c@parentequation=\count308
+\dspbrk@lvl=\count309
+\tag@help=\toks32
+\row@=\count310
+\column@=\count311
+\maxfields@=\count312
+\andhelp@=\toks33
+\eqnshift@=\dimen197
+\alignsep@=\dimen198
+\tagshift@=\dimen199
+\tagwidth@=\dimen256
+\totwidth@=\dimen257
+\lineht@=\dimen258
+\@envbody=\toks34
+\multlinegap=\skip52
+\multlinetaggap=\skip53
+\mathdisplay@stack=\toks35
+LaTeX Info: Redefining \[ on input line 2923.
+LaTeX Info: Redefining \] on input line 2924.
+))
+(C:\Program Files\MiKTeX\tex/latex/amscls\amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks36
+\thm@bodyfont=\toks37
+\thm@headfont=\toks38
+\thm@notefont=\toks39
+\thm@headpunct=\toks40
+\thm@preskip=\skip54
+\thm@postskip=\skip55
+\thm@headsep=\skip56
+\dth@everypar=\toks41
+)
+(C:\Program Files\MiKTeX\tex/latex/esint\esint.sty
+Package: esint 
+\symlargesymbolsA=\mathgroup4
+)
+(C:\Program Files\MiKTeX\tex/latex/amsfonts\amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
 (C:\Program Files\MiKTeX\tex/latex/amsfonts\amsfonts.sty
@@ -790,23 +1060,23 @@ bu-tions in real-space can be trusted
  []
 
 [5 <./signal_build1_freqMap_xbox.png> <./signal_build2_freqMap_nbin.png>]
-<Proof_Concept_noisy_list_xbox.png, id=171, 608.2725pt x 586.44093pt>
-File: Proof_Concept_noisy_list_xbox.png Graphic file (type png)
-<use Proof_Concept_noisy_list_xbox.png>
-Package pdftex.def Info: Proof_Concept_noisy_list_xbox.png  used on input line 
-287.
-(pdftex.def)             Requested size: 130.02011pt x 125.34857pt.
-<Proof_Concept_noiseless.png, id=172, 608.2725pt x 586.44093pt>
+<Proof_Concept_noiseless_list_xbox.png, id=171, 608.2725pt x 584.93532pt>
+File: Proof_Concept_noiseless_list_xbox.png Graphic file (type png)
+<use Proof_Concept_noiseless_list_xbox.png>
+Package pdftex.def Info: Proof_Concept_noiseless_list_xbox.png  used on input l
+ine 287.
+(pdftex.def)             Requested size: 130.02011pt x 125.02675pt.
+<Proof_Concept_noiseless.png, id=172, 608.2725pt x 584.93532pt>
 File: Proof_Concept_noiseless.png Graphic file (type png)
 <use Proof_Concept_noiseless.png>
 Package pdftex.def Info: Proof_Concept_noiseless.png  used on input line 294.
-(pdftex.def)             Requested size: 130.02011pt x 125.34857pt.
-<Proof_Concept_noisy_list_nbin.png, id=173, 608.2725pt x 586.44093pt>
-File: Proof_Concept_noisy_list_nbin.png Graphic file (type png)
-<use Proof_Concept_noisy_list_nbin.png>
-Package pdftex.def Info: Proof_Concept_noisy_list_nbin.png  used on input line 
-301.
-(pdftex.def)             Requested size: 130.02011pt x 125.34857pt.
+(pdftex.def)             Requested size: 130.02011pt x 125.02675pt.
+<Proof_Concept_noiseless_list_nbin.png, id=173, 608.2725pt x 584.93532pt>
+File: Proof_Concept_noiseless_list_nbin.png Graphic file (type png)
+<use Proof_Concept_noiseless_list_nbin.png>
+Package pdftex.def Info: Proof_Concept_noiseless_list_nbin.png  used on input l
+ine 301.
+(pdftex.def)             Requested size: 130.02011pt x 125.02675pt.
 
 
 LaTeX Warning: Reference `' on page 6 undefined on input line 305.
@@ -817,8 +1087,8 @@ LaTeX Warning: Reference `label' on page 6 undefined on input line 305.
 
 LaTeX Warning: Reference `label' on page 6 undefined on input line 305.
 
-[6 <./Proof_Concept_noisy_list_xbox.png> <./Proof_Concept_noiseless.png> <./Pro
-of_Concept_noisy_list_nbin.png>] (freq_map_manual_article.aux)
+[6 <./Proof_Concept_noiseless_list_xbox.png> <./Proof_Concept_noiseless.png> <.
+/Proof_Concept_noiseless_list_nbin.png>] (freq_map_manual_article.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -830,10 +1100,10 @@ Package rerunfilecheck Info: File `freq_map_manual_article.out' has not changed
 (rerunfilecheck)             Checksum: DE0134BFC7AEEEBD299C389F054B254D;1252.
  ) 
 Here is how much of TeX's memory you used:
- 28630 strings out of 479173
- 545803 string characters out of 2864088
- 1035314 words of memory out of 3000000
- 45710 multiletter control sequences out of 15000+600000
+ 28649 strings out of 479173
+ 546080 string characters out of 2864088
+ 1050314 words of memory out of 3000000
+ 45715 multiletter control sequences out of 15000+600000
  418547 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  123i,20n,124p,792b,3025s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -852,9 +1122,9 @@ ublic/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts
 /cm/cmr9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program
  Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on freq_map_manual_article.pdf (6 pages, 298582 bytes).
+Output written on freq_map_manual_article.pdf (6 pages, 302999 bytes).
 PDF statistics:
- 254 PDF objects out of 1000 (max. 8388607)
- 72 named destinations out of 1000 (max. 500000)
+ 273 PDF objects out of 1000 (max. 8388607)
+ 86 named destinations out of 1000 (max. 500000)
  114 words of extra memory for PDF output out of 10000 (max. 10000000)
 

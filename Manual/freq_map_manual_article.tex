@@ -190,10 +190,10 @@ To check the mappings of the three frequency components in fig.\ref{F1b}, three 
 \end{lstlisting}
 As shown in listing.\ref{lst:cb2}, the code for plotting the lines around the relevant frequencies (see fig.\ref{F1c}) were used. The code for plotting the real-space window in fig.\ref{F1d} is shown in listing.\ref{lst:cb4}.\\
  As seen in listing.\ref{lst:cb2}, the frequency windows selected were $\omega = 2\pi(800 ---- 1200)$ for the 1000\si{Hz} peak, $\omega = 2\pi(4800 ---- 5200)$ for the 5000\si{Hz} peak and $\omega = 2\pi(7534 ---- 7934)$ for the 7734\si{Hz} peak rerspectively.\\
- Hence, the selected windows were equispaced in $f/\omega$ space with a $\Delta\omega = 2\pi \times 400$ fort each. This selection has consequences which will be shown.
+ Hence, the selected windows were equispaced in $f/\omega$ space with a $\Delta\omega = 2\pi \times 400$ for each. This selection has consequences which will be shown.
  \subsubsection{Creating the data-structures required for the arguments of freq\_map()}
  $\bullet$ The \lstinline[language=R]|w_int| dataframe\\
- The function \textit{freq\_map()} first and foremost needs a \lstinline[language=R]|w_int| argument, which denotes the integration windows of the signals \textbf{in $\omega$-space}\footnote{Donot use $f$-space values in \lstinline[language=R]|w_int|, use ONLY $\omega$-space values, or else the results received will be incorrect}. \lstinline[language=R]|w_int| is always a $n$ column dataframe with two observations. Here $n$ is the no. of integrstion windows under consideration. For this case, as shown in listing.\ref{lst:cb2} and fig.\ref{F1c}, $n=3$, while the two observations are the two limits of the integration window shown in fig.\ref{F1c}
+ The function \textit{freq\_map()} first and foremost needs a \lstinline[language=R]|w_int| argument, which denotes the integration windows of the signals \textbf{in $\omega$-space}\footnote{Donot use $f$-space values in \lstinline[language=R]|w_int|, use ONLY $\omega$-space values, or else the results received will be incorrect}. \lstinline[language=R]|w_int| is always a $n$ column dataframe with two observations. Here $n$ is the no. of integration windows under consideration. For this case, as shown in listing.\ref{lst:cb2} and fig.\ref{F1c}, $n=3$, while the two observations are the two limits of the integration window shown in fig.\ref{F1c}
   \begin{lstlisting}[language=R, label={lst:cb3}, caption={code for the w\_int dataframe for the three frequency windows in fig.\ref{F1c}}, captionpos=b]
 	##building the datasets for freq_map()
 	#build dataframe for w_int (Integration window)
@@ -284,7 +284,7 @@ This issue occurs, because different frequency windows have different wavelength
 	\centering
 	\begin{subfigure}[t]{0.32\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{Proof_Concept_noisy_list_xbox.png}
+		\includegraphics[width=\linewidth]{Proof_Concept_noiseless_list_xbox.png}
 		\phantomsubcaption
 		\label{F3a}
 	\end{subfigure}
@@ -298,10 +298,48 @@ This issue occurs, because different frequency windows have different wavelength
 	\hfill
 	\begin{subfigure}[t]{0.32\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{Proof_Concept_noisy_list_nbin.png}
+		\includegraphics[width=\linewidth]{Proof_Concept_noiseless_list_nbin.png}
 		\phantomsubcaption
 		\label{F3c}
 	\end{subfigure}	
-	\caption{(a)Plot of $t$ vs $Y$ data generated using \lstinline[language=R]|xbox| \ref{}. (b)Plot of $t$ vs $Y$ data generated using \ref{label}. (c)Plot of $t$ vs $Y$ data generated using \lstinline[language=R]|nbin| \ref{label}}\label{F3}
+	\caption{(a)Plot of $t$ vs $Y$ data generated using \lstinline[language=R]|xbox| in listing.\ref{lst:cb10} (noise removed). (b)Plot of $t$ vs $Y$ data generated using listing.\ref{lst:cb9} (noise removed). (c)Plot of $t$ vs $Y$ data generated using \lstinline[language=R]|nbin| in listing.\ref{lst:cb11} (noise removed)}\label{F3}
 \end{figure}
+As a proof of concept fig.\ref{F3b} was plotted with the noise from the code removed as shown in listing.\ref{lst:cb9}. It can be seen that whether \lstinline[language=R]|xbox| or \lstinline[language=R]|nbin| is used, the generated data follows the waveforms well with respect to the position of the waveforms w.r.t the x-axis. However, as can be seen in fig.\ref{F3a}, the peak amplitudes are slightly distrorted in the case of using \lstinline[language=R]|xbox| rather than \lstinline[language=R]|nbin| (fig.\ref{F3c}).
+\begin{lstlisting}[language=R, label={lst:cb9}, caption={code for signal building (noise removed and coloured in accordance to $\omega_i$). See fig.\ref{F3b} }, captionpos=b]
+	library('StatsChitran') #Call library
+	ClearPlot() #Clear the plot
+	t <- seq(0,10, by=1/60000) #define the time axis
+	fcomp <- c(1000, 5000, 7734) #set which frequencies to build
+	Y1 <- 3*sin(2*pi*fcomp[1]*t)*gauss(t, amp =5, sig = 0.7, mu=1 ) #define signal w1 or Y1
+	Y2 <- 5*sin(2*pi*fcomp[2]*t)*gauss(t, amp = 4, sig = 1, mu=3) #define signal w2 or Y2
+	Y3 <- 4*sin(2*pi*fcomp[3]*t)*gauss(t, amp = 4.3, sig = 3, mu=7) #define signal w3 or Y3
+	plot(t,Y2, col=rgb(0,0,1,0.25), typ='l') #plot w2 or Y2
+	lines(t,Y1, col=rgb(1,0,0,0.25), typ='l') #plot w1 or Y1
+	#lines(t,Y2, col=rgb(0,0,1,0.25), typ='l')
+	lines(t,Y3, col=rgb(0,1,0,0.25), typ='l') #plot w3 or Y3
+	# Add a legend
+	legend("topright", legend = c("w1", "w2", "w3"), col = c("red", "blue", "green"), lty = 1, bg='transparent')
+\end{lstlisting}
+\pagebreak
+\begin{lstlisting}[language=R, label={lst:cb10}, caption={code for frequency mapping using xbox (noise removed and coloured in accordance to $\omega_i$). See fig.\ref{F3a} }, captionpos=b]
+	#plot with xbox
+	box_len <- 0.1
+	L <- freq_map(t,Y, w_int = w_dat, xbox = box_len, color = col_vec, plt = F)
+	plot(L[[3]]$f_data_X, L[[3]]$f_data_Y, col=rgb(0,1,0,0.25), type = 'l', xlab = 'X', ylab = 'Y (arb. units)')
+	lines(L[[1]]$f_data_X, L[[1]]$f_data_Y, col=rgb(1,0,0,0.25))
+	lines(L[[2]]$f_data_X, L[[2]]$f_data_Y, col=rgb(0,0,1,0.25))
+	legend("topleft", legend = c("w1", "w2", "w3"), col = c("red", "blue", "green"), lty = 1, bg='transparent')
+\end{lstlisting}
+ \\
+\begin{lstlisting}[language=R, label={lst:cb11}, caption={code for frequency mapping using nbin (noise removed and coloured in accordance to $\omega_i$). See fig.\ref{F3c} }, captionpos=b]
+	#plot with nbin
+	x_bin <- c(100, 100, 100)
+	L <- freq_map(t,Y, w_int = w_dat, nbin = x_bin, color = col_vec, plt = F)
+	plot(L[[2]]$f_data_X, L[[2]]$f_data_Y, col=rgb(0,0,1,0.25), type = 'l', xlab = 'X', ylab = 'Y (arb. units)')
+	lines(L[[1]]$f_data_X, L[[1]]$f_data_Y, col=rgb(1,0,0,0.25))
+	lines(L[[3]]$f_data_X, L[[3]]$f_data_Y, col=rgb(0,1,0,0.25))
+	legend("topleft", legend = c("w1", "w2", "w3"), col = c("red", "blue", "green"), lty = 1, bg='transparent')
+\end{lstlisting}
+
+
 \end{document}
